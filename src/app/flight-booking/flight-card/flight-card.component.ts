@@ -8,11 +8,18 @@ import { Flight } from '../../entities/flight';
   styleUrls: ['./flight-card.component.css']
 })
 export class FlightCardComponent implements OnInit, OnChanges {
-  debug = false;
+  debug = true;
 
   @Input() item: Flight | undefined | null;
   @Input() isSelected = false;
   @Output() isSelectedChange = new EventEmitter<boolean>();
+
+  constructor() {
+    if (this.debug) {
+      console.warn('[FlightCardComponent - constructor()]');
+      console.log(this.item);
+    }
+  }
 
   ngOnChanges(): void {
     if (this.debug) {
@@ -27,6 +34,13 @@ export class FlightCardComponent implements OnInit, OnChanges {
       console.warn('[FlightCardComponent - ngOnInit()]');
       console.log(this.item);
       console.log('isSelected: ' + this.isSelected);
+    }
+  }
+
+  ngOnDestroy(): void {
+    if (this.debug) {
+      console.warn('[FlightCardComponent - ngOnDestroy()]');
+      console.log(this.item);
     }
   }
 

@@ -81,4 +81,8 @@ export class FlightSearchComponent implements OnInit, OnDestroy {
       });
     }
   }
+
+  trackById(index: number, flight: Flight): number {
+    return flight.id;
+  }
 }
