@@ -23,6 +23,7 @@ export class FlightSearchComponent implements OnInit, OnDestroy {
   flightsSubscription: Subscription | undefined;
 
   selectedFlight: Flight | undefined | null;
+  flightToEdit: Flight | undefined | null;
 
   message = '';
 
@@ -82,7 +83,7 @@ export class FlightSearchComponent implements OnInit, OnDestroy {
     this.selectedFlight = f;
   }
 
-  save(): void {
+  /*save(): void {
     if (this.selectedFlight) {
       this.flightService.save(this.selectedFlight).subscribe({
         next: (flight) => {
@@ -95,7 +96,7 @@ export class FlightSearchComponent implements OnInit, OnDestroy {
         }
       });
     }
-  }
+  }*/
 
   trackById(index: number, flight: Flight): number {
     return flight.id;

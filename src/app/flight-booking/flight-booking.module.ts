@@ -10,10 +10,11 @@ import { CityValidatorDirective } from './shared/validation/city-validator.direc
 import { AsyncCityValidatorDirective } from './shared/validation/async-city-validator.directive';
 import { MultiFieldValidatorDirective } from './shared/validation/multi-field-validator.directive';
 import { AsyncMultiFieldValidatorDirective } from './shared/validation/async-multi-field-validator.directive';
+import { FlightEditComponent } from './flight-edit/flight-edit.component';
 
 @NgModule({
   imports: [CommonModule, SharedModule],
-  declarations: [FlightSearchComponent, FlightCardComponent, FlightStatusToggleComponent, FlightValidationErrorsComponent, CityValidatorDirective, AsyncCityValidatorDirective, MultiFieldValidatorDirective, AsyncMultiFieldValidatorDirective],
+  declarations: [FlightSearchComponent, FlightCardComponent, FlightStatusToggleComponent, FlightValidationErrorsComponent, CityValidatorDirective, AsyncCityValidatorDirective, MultiFieldValidatorDirective, AsyncMultiFieldValidatorDirective, FlightEditComponent],
   exports: [FlightSearchComponent]
 })
 export class FlightBookingModule {}
