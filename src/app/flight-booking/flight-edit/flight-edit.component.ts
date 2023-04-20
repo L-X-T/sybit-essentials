@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ActivatedRoute, Params, Router } from '@angular/router';
@@ -85,11 +85,16 @@ export class FlightEditComponent implements OnChanges, OnInit, OnDestroy {
     this.editForm.validator = validateRoundTrip;
   }
 
-  ngOnChanges(): void {
+  ngOnChanges(changes: SimpleChanges): void {
+    console.warn('[FlightEditComponent] Changes:');
+    console.log(changes);
+
     this.patchFormValue();
   }
 
   ngOnInit(): void {
+    console.warn('[FlightEditComponent] Init!');
+
     this.valueChangesSubscription = this.editForm.valueChanges
       .pipe(
         debounceTime(250),
@@ -105,6 +110,8 @@ export class FlightEditComponent implements OnChanges, OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
+    console.warn('[FlightEditComponent] Bye bye!');
+
     this.valueChangesSubscription?.unsubscribe();
     this.saveFlightSubscription?.unsubscribe();
   }

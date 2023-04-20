@@ -51,9 +51,11 @@
       </flight-validation-errors>
 
       <div class="form-group">
-        <button
-          (click)="search()"
-          class="btn btn-default">Search</button>
+        <button (click)="search()" class="btn btn-default">Search</button>
+
+        <button [disabled]="flights.length === 0" (click)="delayFirstFlight()" class="btn btn-default" style="margin-left: 10px">
+          Delay first flight
+        </button>
       </div>
     </form>
   </div>
